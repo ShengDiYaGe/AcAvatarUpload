@@ -36,15 +36,16 @@ namespace avatar
 
         private static CookieCollection cookies;
 
-        public static string loginUrl = "http://www.acfun.tv/login.aspx";
+        //public static string loginUrl = "http://www.acfun.cn/login.aspx";
+        public static string loginUrl = "https://id.app.acfun.cn/rest/web/login/signin";
 
-        public static string checkinUrl = "http://www.acfun.tv/member/checkin.aspx";
+        public static string checkinUrl = "http://www.acfun.cn/member/checkin.aspx";
 
-        public static string getpushUrl = "http://www.acfun.tv/member/unRead.aspx";
+        public static string getpushUrl = "http://www.acfun.cn/member/unRead.aspx";
 
-        public static string getPublishUrl = "http://www.acfun.tv/member/publishContent.aspx?isGroup=0&groupId=-1&pageSize=10&pageNo=1";
+        public static string getPublishUrl = "http://www.acfun.cn/member/publishContent.aspx?isGroup=0&groupId=-1&pageSize=10&pageNo=1";
 
-        public static string uploadImgUrl = "http://www.acfun.tv/member/upload_image.aspx";
+        public static string uploadImgUrl = "http://www.acfun.cn/member/upload_image.aspx";
 
         public static CookieContainer cookiec = new CookieContainer();
 
@@ -108,20 +109,22 @@ namespace avatar
             {
                 //命名空间System.Net下的HttpWebRequest类
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(postUrl);
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                //ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls ;
                 //参照浏览器的请求报文 封装需要的参数 这里参照ie9
                 //浏览器可接受的MIME类型
-                request.Accept = "text/plain, */*; q=0.01";
+                request.Accept = "*/*";
                 //包含一个URL，用户从该URL代表的页面出发访问当前请求的页面
                 request.Referer = referUrl;
                 //浏览器类型，如果Servlet返回的内容与浏览器类型有关则该值非常有用
-                request.UserAgent = "ShengDiYaGe/1.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E)";
-                request.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
+                request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.119 Safari/537.36";
+                request.ContentType = "application/json;charset=UTF-8";
                 //请求方式
                 request.Method = "POST";
                 request.Timeout = 20000;
                 //是否保持常连接
                 request.KeepAlive = true;
-                request.Headers.Add("Accept-Encoding", "gzip, deflate");
+                request.Headers.Add("Accept-Encoding", "gzip");
                 //表示请求消息正文的长度
                 request.ContentLength = data.Length;
                 Stream postStream = request.GetRequestStream();
@@ -313,7 +316,7 @@ namespace avatar
         {
             string s = "";
             string data = "contentId=" + acNo + "&count=5&userId=" + userId;
-            s = PostData("http://www.acfun.tv/banana/throwBanana.aspx", "http://www.acfun.tv/v/ac" + acNo, data, cookiec);
+            s = PostData("http://www.acfun.cn/banana/throwBanana.aspx", "http://www.acfun.cn/v/ac" + acNo, data, cookiec);
             return s;
         }
 
@@ -325,7 +328,7 @@ namespace avatar
         public static string comment(string PostNo, string data, CookieContainer cookiec)
         {
             //posturl
-            //http://www.acfun.tv/comment.aspx
+            //http://www.acfun.cn/comment.aspx
             //data:
             //name:sendComm()
             //token:mimiko
@@ -335,13 +338,13 @@ namespace avatar
             //contentId:1832378
             //name=sendComm()&token=mimiko&quoteId=0&text=%E8%A6%81%E9%82%A3%E4%B9%88%E5%A4%9A%E7%9F%B3%E6%B2%B9%E5%B9%B2%E5%98%9B%EF%BC%8C%E5%8D%96%E4%BA%86%E5%8D%96%E4%BA%86&cooldown=5000&contentId=1832378
             //refer
-            //http://www.acfun.tv/a/ac1832378
+            //http://www.acfun.cn/a/ac1832378
             data = System.Web.HttpUtility.UrlEncode(data);
             data = "name=sendComm()&token=mimiko&quoteId=0&text=" + data + "&cooldown=5000&contentId=" + PostNo + "&quoteName=";
             string result = "";
             try
             {
-                HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create("http://www.acfun.tv/comment.aspx");
+                HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create("http://www.acfun.cn/comment.aspx");
                 myHttpWebRequest.AllowAutoRedirect = true;
                 myHttpWebRequest.KeepAlive = true;
                 myHttpWebRequest.Accept = "*/*";
@@ -349,7 +352,7 @@ namespace avatar
                 myHttpWebRequest.CookieContainer = cookiec;
                 myHttpWebRequest.UserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; Maxthon; .NET CLR 2.0.50727)";
                 myHttpWebRequest.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
-                myHttpWebRequest.Referer = "http://www.acfun.tv/a/ac" + PostNo;
+                myHttpWebRequest.Referer = "http://www.acfun.cn/a/ac" + PostNo;
                 myHttpWebRequest.Method = "POST";
                 myHttpWebRequest.Timeout = 10000;
                 myHttpWebRequest.ContentLength = data.Length;
@@ -512,7 +515,7 @@ namespace avatar
                 request.UserAgent = "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36";
                 request.Timeout = 100000;
                 request.KeepAlive = true;
-                request.Host = "www.acfun.tv";
+                request.Host = "www.acfun.cn";
                 request.Headers.Add("Origin", "http://cdn.aixifan.com");
                 request.Headers.Add("x-requested-with", "ShockwaveFlash/21.0.0.216");
                 request.CookieContainer = cookiec;

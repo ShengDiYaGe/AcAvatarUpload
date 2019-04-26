@@ -1,0 +1,15 @@
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\bin\Debug\Resources\mao.gif
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\bin\Debug\Forms\MainForm.resx
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\bin\Debug\avatar.exe.config
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\bin\Debug\avatar.exe
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\bin\Debug\avatar.pdb
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\obj\Debug\avatar.csprojAssemblyReference.cache
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\obj\Debug\avatar.LoginForm.resources
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\obj\Debug\avatar.Avatar.resources
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\obj\Debug\avatar.Properties.Resources.resources
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\obj\Debug\avatar.csproj.GenerateResource.cache
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\obj\Debug\avatar.csproj.CoreCompileInputs.cache
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\obj\Debug\avatar.csproj.CopyComplete
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\obj\Debug\avatar.exe
+C:\Users\jingjie\Downloads\AcAvatarUpload\AvatarUpload\avatar\avatar\obj\Debug\avatar.pdb
